@@ -81,19 +81,12 @@ class App extends Component {
           <div className='content' aria-live='polite'>
             <Route
               path='/add-bookmark'
-              render={({ history }) => {
-                return <AddBookmark
-                  onAddBookmark={this.addBookmark}
-                  onClickCancel={() => history.push('/')}
-                />
-              }}
+              component={AddBookmark}
             />
             <Route
               exact
               path='/'
-              render={({ history }) => {
-                return <BookmarkList bookmarks={bookmarks} />
-              }}
+              component={BookmarkList}
             />
           </div>
         </BookmarksContext.Provider>
