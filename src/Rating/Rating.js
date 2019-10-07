@@ -29,7 +29,3 @@ Rating.propTypes = {
     }
   }
 };
-
-// Rating.defaultProps = {
-  // value: 1
-// }
