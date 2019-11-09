@@ -5,6 +5,21 @@ import PropTypes from 'prop-types';
 import './BookmarkList.css'
 
 export default class BookmarkList extends Component {
+  static propTypes = {
+    bookmarks: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.oneOfType([
+          PropTypes.number,
+          PropTypes.string,
+        ]).isRequired,
+      })
+    )
+  };
+
+  static defaultProps = {
+    bookmarks: []
+  };
+
   static contextType = BookmarksContext;
 
   render() {
@@ -24,12 +39,3 @@ export default class BookmarkList extends Component {
     );
   }
 }
-
-BookmarkList.propTypes = {
-  bookmarks: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    rating: PropTypes.number,
-    description: PropTypes.string
-  }))
-};

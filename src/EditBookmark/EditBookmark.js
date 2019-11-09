@@ -26,13 +26,13 @@ export default class EditBookmark extends Component {
         title: '',
         url: '',
         description: '',
-        rating: 1,
+        rating: 3,
     };
 
     componentDidMount() {
-        const { bookmarkId } = this.props.match.params
+        const { bookmarkId } = this.props.match.params 
 
-        fetch(config.API_ENDPOINT = `/${bookmarkId}`, {
+        fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -41,12 +41,13 @@ export default class EditBookmark extends Component {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error(res.status)
+                    return res.json().then(error => Promise.reject(error))
                 }
                 return res.json()
             })
             .then(resData => {
                 this.setState({
+                    id: resData.id,
                     title: resData.title,
                     description: resData.description,
                     rating: resData.rating, 
@@ -182,7 +183,6 @@ export default class EditBookmark extends Component {
                             type='number'
                             name='rating'
                             id='rating'
-                            defaultValue='1'
                             min='1'
                             max='5'
                             required
