@@ -48,7 +48,7 @@ export default function BookmarkItem(props) {
                 {props.title}
               </a>
             </h3>
-            <Rating value={props.rating} />
+            <Rating value={Number(props.rating)} />
           </div>
           <p className='BookmarkItem__description'>
             {props.description}

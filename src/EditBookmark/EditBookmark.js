@@ -73,13 +73,14 @@ export default class EditBookmark extends Component {
     };
     
     handleChangeRating = e => {
-        this.setState({ rating: e.target.value })
+        this.setState({ rating: Number(e.target.value) })
     };
     
     handleSubmit = e => {
         e.preventDefault()
         const { bookmarkId } = this.props.match.params
         const { id, title, url, description, rating } = this.state
+        
         const newBookmark = { id, title, url, description, rating }
         fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
             method: 'PATCH',

@@ -71,6 +71,7 @@ class App extends Component {
       deleteBookmark: this.deleteBookmark,
       updateBookmark: this.updateBookmark,
     }
+    console.log(contextValue.bookmarks)
     return (
       <main className='App'>
         <h1>Bookmarks!</h1>
