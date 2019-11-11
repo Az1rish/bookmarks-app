@@ -22,7 +22,6 @@ function deleteBookmarkRequest(bookmarkId, callback) {
           throw error
         })
       }
-      return res.json()
     })
     .then(data => {
       // call the callback when the request is successful
@@ -35,7 +34,6 @@ function deleteBookmarkRequest(bookmarkId, callback) {
 }
 
 export default function BookmarkItem(props) {
-  console.log(props)
   return (
     <BookmarksContext.Consumer>
       {(context) => (
