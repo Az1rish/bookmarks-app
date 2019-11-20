@@ -1,5 +1,5 @@
 export default {
-  API_ENDPOINT: `http://localhost:8000/api/bookmarks`,
+  API_ENDPOINT: `http://shane-bookmarks-server.herokuapp.com/api/bookmarks`,
   API_KEY: process.env.REACT_APP_API_KEY,
 }
 
